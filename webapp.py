@@ -18,8 +18,11 @@ class BrowserTab(gtk.VBox):
         
         settings = webkit.WebSettings()
         #settings.set_property('user-agent', 'Mozilla/5.0 (X11; Linux x86_64) Applewebkit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36')
+       
+        settings.set_property('enable_default_context_menu', False)
+        
         self.webview.set_settings(settings)
-        self.webview.props.settings.props.enable_default_context_menu = False
+        #self.webview.props.settings.props.enable_default_context_menu = False
         self.show()
 
         self.go_back = gtk.Button("Back")
@@ -166,7 +169,7 @@ class Browser(gtk.Window):
 
     def _key_pressed(self, widget, event):
     
-        print(str(event.keyval))
+        #print(str(event.keyval))
        
         modifiers = gtk.accelerator_get_default_mod_mask()
         # mapping = {114: self._reload_tab,
